@@ -63,7 +63,7 @@ thesis = load_dataset("benji-benji/genie", "v1-gpt2-xl", split="test")   # as ev
 
 ## Configurations
 
-v2 is recommended. v1 is the data exactly as evaluated in the thesis.
+v2 is recommended: it removes free-text probes whose prompt already contains the answer being tested. v1 is the data exactly as evaluated in the thesis.
 
 | Config | Cases | Probes | Contents |
 |---|---|---|---|
@@ -105,20 +105,6 @@ Probe composition is ragged by design: a probe is only generated when Wikidata s
 2. Facts, a counterfactual object of similar era and prominence, comparators and hop chains: Wikidata.
 3. Probes generated from templates per relation and subject frame.
 4. Per-model sets: each model was run once, unedited, over every `abstract_2` and `abstract_3` probe. Probes that never produced the old answer are dropped, then only cases that still hold an `abstract_3` probe are kept.
-
-## Changes in v2
-
-Some `abstract_2` and `abstract_3` prompts already contain the answer they are scored on. These prompts identify the subject through a related person, and for director, composer and screenwriter edits that person can be the answer itself: *"Akira Kurosawa films from 1950 are often remembered for their production. One example"* is scored on whether "Akira Kurosawa" appears in the output. A model can produce such an answer by copying it from the prompt.
-
-v2 removes every `abstract_2` and `abstract_3` probe whose prompt contains one of its old answers as a whole word, then re-applies the `abstract_3` stratification to the per-model sets.
-
-| Set | `abstract_2` removed | `abstract_3` removed | Cases removed |
-|---|---|---|---|
-| Full | 148 of 7,025 | 114 of 3,032 | 0 |
-| GPT-2-XL | 18 of 51 | 28 of 95 | 28 of 95 |
-| LLaMA-3-8B | 7 of 278 | 15 of 390 | 15 of 390 |
-
-The GPT-2-XL set is affected most because the per-model filter keeps probes where the unedited model produced the old answer, and copying from the prompt is an easy way to do that.
 
 ## Limitations
 

@@ -49,7 +49,7 @@ Four of this case's 8 probes are shown; the others are `paraphrase_1`, `paraphra
 
 ## Files
 
-Two versions are published. **v2 is the recommended version.** v1 is the data exactly as evaluated in the thesis, kept so those results can be reproduced.
+Two versions are published. **v2 is the recommended version**: it removes free-text probes whose prompt already contains the answer being tested. v1 is the data exactly as evaluated in the thesis, kept so those results can be reproduced.
 
 | File | v2 records | v2 probes | v1 records | v1 probes |
 |---|---|---|---|---|
@@ -58,20 +58,6 @@ Two versions are published. **v2 is the recommended version.** v1 is the data ex
 | `genie_llama3-8b.jsonl` — LLaMA-3-8B evaluation pool | 375 | 2,771 | 390 | 2,880 |
 
 Files live in `data/hf/v2/` and `data/hf/v1/`. v1 `genie.jsonl` is `data/raw/genie/genie.json` unchanged, one case per line.
-
-### What changed in v2
-
-Some `abstract_2` and `abstract_3` prompts already contain the answer they are scored on. These prompts identify the subject through a related person, and for director, composer and screenwriter edits that person can be the answer itself: *"Akira Kurosawa films from 1950 are often remembered for their production. One example"* is scored on whether "Akira Kurosawa" appears in the output.
-
-A model can produce such an answer by copying it from the prompt, so these probes do not test what the model knows. v2 removes every `abstract_2` and `abstract_3` probe whose prompt contains one of its old answers as a whole word (`abstract_1` names both candidates by design and is unaffected), then re-applies the `abstract_3` stratification to the per-model sets.
-
-| Set | `abstract_2` removed | `abstract_3` removed | Cases removed |
-|---|---|---|---|
-| Full | 148 of 7,025 | 114 of 3,032 | 0 |
-| GPT-2-XL | 18 of 51 | 28 of 95 | 28 of 95 |
-| LLaMA-3-8B | 7 of 278 | 15 of 390 | 15 of 390 |
-
-The GPT-2-XL set is affected most because of how it was built: the per-model filter keeps probes where the unedited model produced the old answer, and copying from the prompt is an easy way to do that. In the thesis, roughly 3 in 10 GPT-2-XL `abstract_3` probes therefore asked for the new answer while naming the old one in the prompt.
 
 ### How the per-model sets are built
 
