@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="344" viewBox="0 0 460 172" role="img" aria-label="The GENIE build pipeline">
+  <style>
+    /* Palette and weights follow docs/alphaedit-chart-style-guide.md.
+       Colours are literal here so the file renders standalone. */
+    .tk  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 7.4px; fill: #161C22; }
+    .tf  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 6.6px; fill: #161C22; }
+    .tm  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 6.6px; fill: #97A5B3; }
+    /* no letter-spacing on the titles: with text-anchor middle the trailing space is
+       counted in the advance width and shifts the whole string off centre */
+    .tt  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 6.8px;
+           fill: #161C22; text-anchor: middle; }
+    .tj  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 6.2px;
+           fill: #161C22; text-anchor: middle; }
+    .box  { fill: #FFFFFF; stroke: #3B4652; stroke-width: 1; }
+    .conn { fill: none; stroke: #97A5B3; stroke-width: 1; }
+    .dash { fill: none; stroke: #97A5B3; stroke-width: 1; stroke-dasharray: 2.5 2.5; }
+  </style>
+  <defs>
+    <marker id="arw" viewBox="0 0 8 8" refX="7" refY="4"
+            markerWidth="4.5" markerHeight="4.5" orient="auto">
+      <path d="M0 0.6 L8 4 L0 7.4 Z" fill="#97A5B3"/>
+    </marker>
+  </defs>
+  <rect width="460" height="172" fill="#FFFFFF"/>
+
+  <!-- 1 · wikidata -->
+  <circle cx="38" cy="48" r="13" fill="#FFFFFF" stroke="#3B4652"/>
+  <circle cx="60" cy="36" r="8"  fill="#FFFFFF" stroke="#3B4652"/>
+  <circle cx="62" cy="60" r="9"  fill="#FFFFFF" stroke="#3B4652"/>
+  <circle cx="40" cy="70" r="6"  fill="#FFFFFF" stroke="#3B4652"/>
+  <text class="tk" x="14" y="98">n &#8776; 115,000,000</text>
+  <text class="tm" x="14" y="110">items in graph</text>
+  <rect class="box" x="14" y="134" width="72" height="18" rx="3"/>
+  <text class="tt" x="50" y="145.5">WIKIDATA</text>
+
+  <line class="conn" x1="88" y1="50" x2="104" y2="50" marker-end="url(#arw)"/>
+
+  <!-- 2 · filter -->
+  <path class="box" d="M108 26 L168 26 L145 56 L145 76 L131 76 L131 56 Z"/>
+  <text class="tf" x="102" y="98">year 1901&#8211;2017</text>
+  <text class="tf" x="102" y="110">sitelinks &gt; 0</text>
+  <text class="tf" x="102" y="122">argmax(views)</text>
+  <rect class="box" x="102" y="134" width="72" height="18" rx="3"/>
+  <text class="tt" x="138" y="145.5">FILTER</text>
+
+  <line class="conn" x1="172" y1="50" x2="188" y2="50" marker-end="url(#arw)"/>
+
+  <!-- 3 · candidate table -->
+  <rect class="box" x="202" y="26" width="52" height="50" rx="2"/>
+  <line class="conn" x1="202" y1="36" x2="254" y2="36"/>
+  <line class="conn" x1="202" y1="46" x2="254" y2="46"/>
+  <line class="conn" x1="202" y1="56" x2="254" y2="56"/>
+  <line class="conn" x1="202" y1="66" x2="254" y2="66"/>
+  <text class="tk" x="192" y="98">n = 7,340 rows</text>
+  <text class="tm" x="192" y="110">2,987 subjects</text>
+  <rect class="box" x="192" y="134" width="72" height="18" rx="3"/>
+  <text class="tt" x="228" y="145.5">CANDIDATE TABLE</text>
+
+  <!-- rows poured into templates, one dotted arrow per template -->
+  <line class="dash" x1="260" y1="34" x2="288" y2="34" marker-end="url(#arw)"/>
+  <line class="dash" x1="260" y1="50" x2="288" y2="50" marker-end="url(#arw)"/>
+  <line class="dash" x1="260" y1="66" x2="288" y2="66" marker-end="url(#arw)"/>
+
+  <!-- 4 · templates -->
+  <rect x="292" y="28" width="60" height="12" rx="2" fill="#F0FBC3" stroke="#3B4652"/>
+  <rect x="292" y="44" width="60" height="12" rx="2" fill="#F0FBC3" stroke="#3B4652"/>
+  <rect x="292" y="60" width="60" height="12" rx="2" fill="#F0FBC3" stroke="#3B4652"/>
+  <text class="tk" x="286" y="98">n = 10 per row</text>
+  <text class="tm" x="286" y="110">filled from</text>
+  <text class="tm" x="286" y="122">candidate rows</text>
+  <rect class="box" x="286" y="134" width="72" height="18" rx="3"/>
+  <text class="tt" x="322" y="145.5">TEMPLATES</text>
+
+  <line class="conn" x1="360" y1="50" x2="376" y2="50" marker-end="url(#arw)"/>
+
+  <!-- 5 · final -->
+  <rect x="384" y="22" width="58" height="58" rx="3" fill="#AFEAFC" stroke="#3B4652"/>
+  <text class="tj" x="413" y="53">genie.json</text>
+  <text class="tk" x="376" y="98">n = 95</text>
+  <rect class="box" x="376" y="134" width="72" height="18" rx="3"/>
+  <text class="tt" x="412" y="145.5">GENIE</text>
+</svg>

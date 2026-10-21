@@ -1,0 +1,16 @@
+[project]
+name = "genie-benchmark"
+version = "1.0.0"
+description = "GENIE: a benchmark for whether an edited language model uses a new fact, not just recalls it"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "requests>=2.32",
+]
+
+[project.optional-dependencies]
+# only needed to re-run the per-model filter (genie_filter_by_model)
+filter = [
+    "torch>=2.11.0",
+    "transformers>=5.5.4",
+]

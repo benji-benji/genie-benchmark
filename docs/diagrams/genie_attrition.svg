@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="500" viewBox="0 0 460 250" role="img" aria-label="GENIE attrition: what survives each stage">
+  <style>
+    .tb  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 9px; font-weight: 600; fill: #161C22; }
+    .tk  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 8px; fill: #161C22; }
+    .tl  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 7.5px; letter-spacing: .08em; fill: #97A5B3; }
+  </style>
+  <rect width="460" height="250" fill="#FFFFFF"/>
+
+  <text class="tl" x="20" y="24">WHAT SURVIVES EACH STAGE</text>
+
+  <rect x="20" y="32"  width="300" height="24" rx="2" fill="#AFEAFC" stroke="#3B4652"/>
+  <text class="tb" x="29" y="48">115,000,000</text>
+  <text class="tk" x="104" y="48">entities in the Wikidata graph</text>
+
+  <rect x="20" y="62"  width="250" height="24" rx="2" fill="#91ACE0" stroke="#3B4652"/>
+  <text class="tb" x="29" y="78">2,987</text>
+  <text class="tk" x="104" y="78">seed entities</text>
+
+  <rect x="20" y="92"  width="205" height="24" rx="2" fill="#7DDFD6" stroke="#3B4652"/>
+  <text class="tb" x="29" y="108">7,340</text>
+  <text class="tk" x="235" y="108">candidate rows, constructed from seed entities</text>
+
+  <rect x="20" y="122" width="165" height="24" rx="2" fill="#7DDFD6" stroke="#3B4652"/>
+  <text class="tb" x="29" y="138">3,926</text>
+  <text class="tk" x="195" y="138">validated rows</text>
+
+  <rect x="20" y="152" width="125" height="24" rx="2" fill="#ACD78E" stroke="#3B4652"/>
+  <text class="tb" x="29" y="168">408</text>
+  <text class="tk" x="155" y="168">rows kept after gating</text>
+
+  <rect x="20" y="182" width="90"  height="24" rx="2" fill="#F0FBC3" stroke="#3B4652"/>
+  <text class="tb" x="29" y="198">95</text>
+  <text class="tk" x="120" y="198">sampled per run, seed 0</text>
+
+  <rect x="20" y="212" width="60"  height="24" rx="2" fill="#F0FBC3" stroke="#3B4652"/>
+  <text class="tb" x="29" y="228">10</text>
+  <text class="tk" x="90" y="228">templates populated, per case</text>
+</svg>

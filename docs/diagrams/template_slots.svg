@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="344" viewBox="0 0 460 172" role="img" aria-label="A GENIE template and the fillers for each slot">
+  <style>
+    .t   { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 8.5px; fill: #161C22; }
+    .tk  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 7px; fill: #161C22; }
+    .tm  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 6.2px; fill: #97A5B3; }
+    .tl  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 7px; letter-spacing: .08em; fill: #97A5B3; }
+    .tn  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 7px; fill: #161C22; }
+    .box { fill: #FFFFFF; stroke: #3B4652; stroke-width: 1; }
+    .conn{ fill: none; stroke: #97A5B3; stroke-width: 1; }
+    .drop{ fill: none; stroke: #97A5B3; stroke-width: 1; stroke-dasharray: 2.5 2.5; }
+  </style>
+  <rect width="460" height="172" fill="#FFFFFF"/>
+
+  <text class="tl" x="16" y="18">TEMPLATE:</text>
+  <text class="tn" x="72" y="18">ABSTRACT_3</text>
+
+  <!-- Every fragment carries its own x, so the slots sit at known positions whatever
+       the font resolves to — the drop lines and the columns below use the same values. -->
+  <rect class="box" x="16" y="24" width="410" height="28" rx="3"/>
+  <text class="t" y="42">
+    <tspan x="24">{</tspan>
+    <tspan x="30" font-weight="600" fill="#2E6FB7">{person}</tspan>
+    <tspan x="100" font-weight="600" fill="#4E9E5A">{subject_class}</tspan>
+    <tspan x="182">from</tspan>
+    <tspan x="212" font-weight="600" fill="#645AC6">{year}</tspan>
+    <tspan x="250">are often remembered for their &#8230;}</tspan>
+  </text>
+
+  <!-- each drop sits on the centre of its column header, not the column's left edge:
+       PERSON 6 chars, CLASS 5, YEAR 4, at 7px with .08em tracking -->
+  <line class="drop" x1="44"  y1="48" x2="44"  y2="74"/>
+  <line class="drop" x1="112" y1="48" x2="112" y2="74"/>
+  <line class="drop" x1="221" y1="48" x2="221" y2="74"/>
+
+  <g transform="translate(30,80)">
+    <text class="tl" x="0" y="8" fill="#2E6FB7">PERSON</text>
+    <text class="tk" x="0" y="24">James Joyce</text>
+    <text class="tk" x="0" y="36">Beyonc&#233;</text>
+    <text class="tk" x="0" y="48">Jackie Chan</text>
+    <line class="conn" x1="0" y1="57" x2="56" y2="57"/>
+    <text class="tm" x="0" y="70">from another</text>
+    <text class="tm" x="0" y="80">relation</text>
+  </g>
+
+  <g transform="translate(100,80)">
+    <text class="tl" x="0" y="8" fill="#4E9E5A">CLASS</text>
+    <text class="tk" x="0" y="24">novels</text>
+    <text class="tk" x="0" y="36">albums</text>
+    <text class="tk" x="0" y="48">films</text>
+    <line class="conn" x1="0" y1="57" x2="72" y2="57"/>
+    <text class="tm" x="0" y="70">wikidata P31</text>
+  </g>
+
+  <g transform="translate(212,80)">
+    <text class="tl" x="0" y="8" fill="#645AC6">YEAR</text>
+    <text class="tk" x="0" y="24">1922</text>
+    <text class="tk" x="0" y="36">2016</text>
+    <text class="tk" x="0" y="48">1998</text>
+    <line class="conn" x1="0" y1="57" x2="64" y2="57"/>
+    <text class="tm" x="0" y="70">the subject's own</text>
+  </g>
+
+  <!-- frame is derived, not drawn from the table — so it sits apart, in its own box -->
+  <rect x="308" y="72" width="136" height="92" rx="3" fill="#F2F6FA" stroke="#DBE5EE"/>
+  <g transform="translate(318,80)">
+    <text class="tl" x="0" y="8" fill="#C2126B">FRAME</text>
+    <text class="tk" x="0" y="24">writing</text>
+    <text class="tk" x="0" y="36">music</text>
+    <text class="tk" x="0" y="48">production</text>
+    <line class="conn" x1="0" y1="57" x2="98" y2="57"/>
+    <text class="tm" x="0" y="70">mapped from the</text>
+    <text class="tm" x="0" y="80">relation, not the row</text>
+  </g>
+</svg>

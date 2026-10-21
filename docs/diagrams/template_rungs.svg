@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="380" viewBox="0 0 400 190" role="img" aria-label="The same fact, receding: template rungs by what each one removes">
+  <style>
+    .tk  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 8px; fill: #161C22; }
+    .tl  { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-size: 7.5px; letter-spacing: .08em; fill: #97A5B3; }
+    .box { fill: #FFFFFF; stroke: #3B4652; stroke-width: 1; }
+  </style>
+  <rect width="400" height="190" fill="#FFFFFF"/>
+
+  <text class="tl" x="20" y="20">THE SAME FACT, RECEDING</text>
+
+  <g transform="translate(20,26)">
+    <rect x="0" y="0" width="360" height="30" rx="3" fill="#AFEAFC" stroke="#3B4652"/>
+    <text class="tl" x="7" y="12">EFFICACY &#8212; SUBJECT AND RELATION BOTH NAMED</text>
+    <text class="tk" x="7" y="25">"The painter of the Mona Lisa is"</text>
+
+    <rect class="box" x="18" y="38" width="342" height="30" rx="3"/>
+    <text class="tl" x="25" y="50">PARAPHRASE &#8212; SAME TWO, REWORDED</text>
+    <text class="tk" x="25" y="63">"The Mona Lisa was painted by"</text>
+
+    <rect class="box" x="36" y="76" width="324" height="30" rx="3"/>
+    <text class="tl" x="43" y="88">ABSTRACT 2 &#8212; SUBJECT NAMED, RELATION IMPLIED</text>
+    <text class="tk" x="43" y="101">"The Mona Lisa is a 1503 painting. Its creation"</text>
+
+    <rect x="54" y="114" width="306" height="42" rx="3" fill="#F0FBC3" stroke="#3B4652"/>
+    <text class="tl" x="61" y="126">ABSTRACT 3 &#8212; SUBJECT NOT NAMED AT ALL</text>
+    <text class="tk" x="61" y="139">"Lisa Gherardini paintings from 1503 are often</text>
+    <text class="tk" x="61" y="151">remembered for their creation. One example"</text>
+  </g>
+</svg>
