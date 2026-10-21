@@ -2,9 +2,11 @@
 
 No generation and no model runs.
 
-Version 2. Per model, the MSc filter (drop probes that never surfaced pre-edit, then keep
-records that still hold an abstract_3 probe) is applied to the committed surfacing results
-in artifacts/. Every abstract_2 / abstract_3 probe whose prompt already contains one
+v1 is the data as evaluated in the MSc: genie.json unchanged, and per model the MSc filter
+(drop probes that never surfaced pre-edit, then keep records that still hold an abstract_3
+probe) applied to the committed surfacing results in artifacts/.
+
+v2 additionally drops every abstract_2 / abstract_3 probe whose prompt already contains one
 of its old answers (e.g. "Akira Kurosawa films from 1950 ..." scored on "Akira Kurosawa").
 abstract_1 is exempt: it names both candidates by design. Records left with no probes are
 dropped, and the per-model sets are re-stratified on abstract_3.
@@ -62,10 +64,11 @@ def main():
         sets[f"genie_{model}"] = stratify(filter_records(records, surfacing), STRATIFY_ON)
 
     for name, recs in sets.items():
-        out = drop_leaked(recs)
+        write_jsonl(OUT / "v1" / f"{name}.jsonl", recs)
+        v2 = drop_leaked(recs)
         if name != "genie":
-            out = stratify(out, STRATIFY_ON)
-        write_jsonl(OUT / f"{name}.jsonl", out)
+            v2 = stratify(v2, STRATIFY_ON)
+        write_jsonl(OUT / "v2" / f"{name}.jsonl", v2)
 
 
 if __name__ == "__main__":

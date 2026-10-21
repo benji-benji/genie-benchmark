@@ -17,15 +17,27 @@ configs:
   default: true
   data_files:
   - split: test
-    path: genie.jsonl
+    path: v2/genie.jsonl
 - config_name: gpt2-xl
   data_files:
   - split: test
-    path: genie_gpt2-xl.jsonl
+    path: v2/genie_gpt2-xl.jsonl
 - config_name: llama3-8b
   data_files:
   - split: test
-    path: genie_llama3-8b.jsonl
+    path: v2/genie_llama3-8b.jsonl
+- config_name: v1-full
+  data_files:
+  - split: test
+    path: v1/genie.jsonl
+- config_name: v1-gpt2-xl
+  data_files:
+  - split: test
+    path: v1/genie_gpt2-xl.jsonl
+- config_name: v1-llama3-8b
+  data_files:
+  - split: test
+    path: v1/genie_llama3-8b.jsonl
 ---
 
 # GENIE: GENeralisation In Edits
@@ -44,19 +56,23 @@ Built for the MSc thesis *Model editing: capacities and limits* (Ben Bethell, Bi
 ```python
 from datasets import load_dataset
 
-genie = load_dataset("benji-benji/genie", "full", split="test")      # 7,340 cases
-gpt2 = load_dataset("benji-benji/genie", "gpt2-xl", split="test")    # GPT-2-XL set
+genie = load_dataset("benji-benji/genie", "full", split="test")          # 7,340 cases (v2)
+gpt2 = load_dataset("benji-benji/genie", "gpt2-xl", split="test")        # GPT-2-XL set (v2)
+thesis = load_dataset("benji-benji/genie", "v1-gpt2-xl", split="test")   # as evaluated in the thesis
 ```
 
 ## Configurations
 
-This is version 2 of the dataset: it removes free-text probes whose prompt already contains the answer being tested.
+v2 is recommended: it removes free-text probes whose prompt already contains the answer being tested. v1 is the data exactly as evaluated in the thesis.
 
 | Config | Cases | Probes | Contents |
 |---|---|---|---|
-| `full` | 7,340 | 48,533 | Full benchmark, 43 relations |
-| `gpt2-xl` | 67 | 465 | GPT-2-XL evaluation set |
-| `llama3-8b` | 375 | 2,771 | LLaMA-3-8B evaluation pool |
+| `full` | 7,340 | 48,533 | Full benchmark, 43 relations (v2) |
+| `gpt2-xl` | 67 | 465 | GPT-2-XL evaluation set (v2) |
+| `llama3-8b` | 375 | 2,771 | LLaMA-3-8B evaluation pool (v2) |
+| `v1-full` | 7,340 | 48,795 | Full benchmark, as evaluated |
+| `v1-gpt2-xl` | 95 | 680 | The 95 GPT-2-XL cases evaluated in the thesis |
+| `v1-llama3-8b` | 390 | 2,880 | The pool from which the thesis sampled 95 LLaMA-3-8B cases |
 
 ## Data fields
 

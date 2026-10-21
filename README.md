@@ -49,22 +49,25 @@ Four of this case's 8 probes are shown; the others are `paraphrase_1`, `paraphra
 
 ## Files
 
-This is version 2 of the dataset: it removes free-text probes whose prompt already contains the answer being tested.
+Two versions are published. **v2 is the recommended version**: it removes free-text probes whose prompt already contains the answer being tested. v1 is the data exactly as evaluated in the thesis, kept so those results can be reproduced.
 
-| File | Records | Probes | Contents |
-|---|---|---|---|
-| `data/hf/genie.jsonl` | 7,340 | 48,533 | Full benchmark, 43 relations |
-| `data/hf/genie_gpt2-xl.jsonl` | 67 | 465 | GPT-2-XL evaluation set |
-| `data/hf/genie_llama3-8b.jsonl` | 375 | 2,771 | LLaMA-3-8B evaluation pool |
+| File | v2 records | v2 probes | v1 records | v1 probes |
+|---|---|---|---|---|
+| `genie.jsonl` — full benchmark, 43 relations | 7,340 | 48,533 | 7,340 | 48,795 |
+| `genie_gpt2-xl.jsonl` — GPT-2-XL evaluation set | 67 | 465 | 95 | 680 |
+| `genie_llama3-8b.jsonl` — LLaMA-3-8B evaluation pool | 375 | 2,771 | 390 | 2,880 |
+
+Files live in `data/hf/v2/` and `data/hf/v1/`. v1 `genie.jsonl` is `data/raw/genie/genie.json` unchanged, one case per line.
 
 ### How the per-model sets are built
 
-A free-text probe can only show an edit if the model could produce the original answer before editing. Each model was therefore run once over every `abstract_2` and `abstract_3` probe, unedited; the results are in `artifacts/bench_generation/genie_surfacing_<model>.json`. The per-model sets drop probes that never surfaced, then keep only cases that still hold an `abstract_3` probe. They are rebuilt from the committed surfacing results, with no model runs:
+A free-text probe can only show an edit if the model could produce the original answer before editing. Each model was therefore run once over every `abstract_2` and `abstract_3` probe, unedited; the results are in `artifacts/bench_generation/genie_surfacing_<model>.json`. The per-model sets drop probes that never surfaced, then keep only cases that still hold an `abstract_3` probe. Both versions are rebuilt from the committed surfacing results, with no model runs:
 
 ```bash
 uv run python -m genie_bench.scripts.genie_export
 ```
 
+v1 GPT-2-XL is exactly the 95 cases evaluated in the thesis; v1 LLaMA-3-8B is the 390-case pool from which the thesis drew a seeded sample of 95.
 
 ![How the candidate pool narrows](docs/diagrams/genie_attrition.svg)
 
@@ -93,7 +96,7 @@ On the thesis models, every editing method installs the edit at 92.6–100% on C
 
 ## Licence
 
-- **Data:** CC BY 4.0 (see `LICENSE-DATA`). Underlying facts from Wikidata, CC0.
+- **Data:** CC BY 4.0 (see `LICENSE-DATA`), both versions. Underlying facts from Wikidata, CC0.
 - **Code:** MIT (see `LICENSE`). `ripple_relations.py` and `ripple_get_most_viewed.py` are adapted from [RippleEdits](https://github.com/edenbiran/RippleEdits) (MIT); see `THIRD_PARTY_LICENSES.md`.
 
 ## Citation

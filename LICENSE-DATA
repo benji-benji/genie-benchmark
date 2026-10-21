@@ -1,4 +1,4 @@
-The GENIE dataset files (data/raw/genie/genie.json and data/hf/*.jsonl)
+The GENIE dataset files (data/raw/genie/genie.json, data/hf/v1/ and data/hf/v2/)
 are licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0).
 https://creativecommons.org/licenses/by/4.0/
 
