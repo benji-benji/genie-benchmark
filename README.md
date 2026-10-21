@@ -49,7 +49,7 @@ Four of this case's 8 probes are shown; the others are `paraphrase_1`, `paraphra
 
 ## Files
 
-Two versions are published. **v2 is the recommended version**: it removes free-text probes whose prompt already contains the answer being tested. v1 is the data exactly as evaluated in the thesis, kept so those results can be reproduced.
+Two versions are published. **v2 is the recommended version.** v1 is the data exactly as evaluated in the thesis, kept so those results can be reproduced.
 
 | File | v2 records | v2 probes | v1 records | v1 probes |
 |---|---|---|---|---|

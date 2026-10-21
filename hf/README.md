@@ -63,7 +63,7 @@ thesis = load_dataset("benji-benji/genie", "v1-gpt2-xl", split="test")   # as ev
 
 ## Configurations
 
-v2 is recommended: it removes free-text probes whose prompt already contains the answer being tested. v1 is the data exactly as evaluated in the thesis.
+v2 is the recommended version. v1 is the data exactly as evaluated in the thesis.
 
 | Config | Cases | Probes | Contents |
 |---|---|---|---|
